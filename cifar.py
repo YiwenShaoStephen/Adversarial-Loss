@@ -277,9 +277,9 @@ def train(trainloader, model, criterion, optimizer, writer, epoch, use_cuda, nor
                       epoch, batch_idx, len(trainloader), batch_time=batch_time,
                       loss=losses, adv_loss=adv_losses, prec=top1))
         # log to TensorBoard
-        writer.add_scalar('train_loss', losses.avg, epoch)
-        writer.add_scalar('train_prec', top1.avg, epoch)
-        writer.add_scalar('train_adv_loss', adv_losses.avg, epoch)
+    writer.add_scalar('train_loss', losses.avg, epoch)
+    writer.add_scalar('train_prec', top1.avg, epoch)
+    writer.add_scalar('train_adv_loss', adv_losses.avg, epoch)
 
     return (losses.avg, top1.avg)
 
@@ -331,10 +331,10 @@ def test(testloader, model, criterion, writer, epoch, use_cuda, norm_order=2):
                   'Prec {prec.val:.4f} ({prec.avg:.4f})\t'.format(
                       epoch, batch_idx, len(testloader), batch_time=batch_time,
                       loss=losses, adv_loss=adv_losses, prec=top1))
-        # log to TensorBoard
-        writer.add_scalar('valid_loss', losses.avg, epoch)
-        writer.add_scalar('valid_prec', top1.avg, epoch)
-        writer.add_scalar('valid_adv_loss', adv_losses.avg, epoch)
+    # log to TensorBoard
+    writer.add_scalar('valid_loss', losses.avg, epoch)
+    writer.add_scalar('valid_prec', top1.avg, epoch)
+    writer.add_scalar('valid_adv_loss', adv_losses.avg, epoch)
 
     return (losses.avg, top1.avg)
 
